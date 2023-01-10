@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KingSceneController">
+   <children>
+      <AnchorPane fx:id="searchField" prefHeight="639.0" prefWidth="1302.0">
+         <children>
+            <TableView fx:id="kingTable" layoutX="14.0" layoutY="88.0" prefHeight="444.0" prefWidth="1266.0">
+              <columns>
+                <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="tenColumn" prefWidth="128.0" text="Vua" />
+                  <TableColumn fx:id="mieuhieuColumn" prefWidth="216.0" text="Miếu Hiệu" />
+                  <TableColumn fx:id="thuyhieuColumn" prefWidth="212.0" text="Thụy Hiệu" />
+                  <TableColumn fx:id="nienhieuColumn" prefWidth="203.0" text="Niên Hiệu" />
+                  <TableColumn fx:id="tenhuyColumn" prefWidth="192.0" text="Tên Húy" />
+                  <TableColumn fx:id="thethuColumn" prefWidth="159.0" text="Thế Thứ" />
+                  <TableColumn fx:id="triviColumn" prefWidth="95.0" text="Trị Vì" />
+              </columns>
+            </TableView>
+            <Button layoutX="1228.0" layoutY="51.0" mnemonicParsing="false" onAction="#searchData" text="Search" />
+            <TextField layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="1208.0" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHome" text="Quay lại" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LeHoiSceneController">
+   <children>
+      <AnchorPane prefHeight="588.0" prefWidth="1299.0">
+         <children>
+            <TableView fx:id="leHoiTable" layoutX="14.0" layoutY="119.0" prefHeight="444.0" prefWidth="1266.0">
+              <columns>
+                <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="ngayColumn" prefWidth="115.0" text="Ngày âm lịch" />
+                  <TableColumn fx:id="tenColumn" prefWidth="356.0" text="Tên" />
+                  <TableColumn fx:id="viTriColumn" prefWidth="216.0" text="Vị trí" />
+                  <TableColumn fx:id="toChucLanDauColumn" prefWidth="206.0" text="Lần đầu tổ chức năm" />
+                  <TableColumn fx:id="ghiChuColumn" prefWidth="305.0" text="Ghi chú" />
+              </columns>
+            </TableView>
+            <TextField fx:id="searchField" layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="1266.0" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHome" text="Quay lại" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

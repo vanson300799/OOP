@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+   <children>
+      <AnchorPane layoutX="-3.0" prefHeight="621.0" prefWidth="315.0">
+         <children>
+            <Button id="btnSubmit" layoutX="13.0" layoutY="47.0" mnemonicParsing="false" onAction="#submit" prefHeight="43.0" prefWidth="289.0" text="Lấy dữ liệu" />
+            <Button fx:id="btnKing" layoutX="13.0" layoutY="113.0" mnemonicParsing="false" onAction="#goToKingView" prefHeight="43.0" prefWidth="289.0" text="Danh sách Vua Việt Nam" />
+            <Button layoutX="13.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToDiTichView" prefHeight="43.0" prefWidth="289.0" text="Các di tích lịch sử" />
+            <Button layoutX="13.0" layoutY="244.0" mnemonicParsing="false" onAction="#goToLeHoiView" prefHeight="43.0" prefWidth="289.0" text="Các lễ hội nổi tiếng" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
