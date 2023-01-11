@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KingSceneController">
    <children>
-      <AnchorPane fx:id="searchField" prefHeight="639.0" prefWidth="1302.0">
+      <AnchorPane prefHeight="639.0" prefWidth="1302.0">
          <children>
             <TableView fx:id="kingTable" layoutX="14.0" layoutY="88.0" prefHeight="444.0" prefWidth="1266.0">
               <columns>
@@ -22,8 +22,7 @@
                   <TableColumn fx:id="triviColumn" prefWidth="95.0" text="Trị Vì" />
               </columns>
             </TableView>
-            <Button layoutX="1228.0" layoutY="51.0" mnemonicParsing="false" onAction="#searchData" text="Search" />
-            <TextField layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="1208.0" />
+            <TextField fx:id="searchField" layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="1208.0" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHome" text="Quay lại" />
          </children>
       </AnchorPane>
