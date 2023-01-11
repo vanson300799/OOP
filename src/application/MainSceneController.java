@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import service.DiTichService;
 import service.KingService;
 import service.LeHoiService;
+import service.TrieuDaiService;
 
 import java.io.IOException;
 
@@ -18,10 +19,12 @@ public class MainSceneController {
 	private DiTichService diTichService;
 	private KingService kingService;
 	private LeHoiService leHoiService;
+	private TrieuDaiService trieuDaiService;
 	public MainSceneController() {
 		diTichService = new DiTichService();
 		kingService   = new KingService(); 
 		leHoiService  = new LeHoiService();
+		trieuDaiService  = new TrieuDaiService();
 	}
 	// Event Listener on Button.onAction
 	@FXML
@@ -31,6 +34,7 @@ public class MainSceneController {
 		diTichService.UploadData();
 		kingService.UploadData();
 		leHoiService.UploadData();
+		trieuDaiService.UploadData();
 	}
 	// Event Listener on Button.onAction
 	@FXML
@@ -58,5 +62,13 @@ public class MainSceneController {
 		Stage stage = (Stage) btnKing.getScene().getWindow();
 		stage.setScene(scene);
 		stage.setTitle("Lễ hội Viêt Nam");
+	}
+	@FXML
+	public void goToTrieuDaiView(ActionEvent event) throws IOException {
+		Parent trieuDaiScene = FXMLLoader.load(getClass().getResource("TrieuDaiScene.fxml"));
+		Scene scene = new Scene(trieuDaiScene);
+		Stage stage = (Stage) btnKing.getScene().getWindow();
+		stage.setScene(scene);
+		stage.setTitle("Triều đại Việt Nam");
 	}
 }
