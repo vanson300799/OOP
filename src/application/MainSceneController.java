@@ -10,6 +10,7 @@ import service.DiTichService;
 import service.KingService;
 import service.LeHoiService;
 import service.TrieuDaiService;
+import service.SuKienService;
 
 import java.io.IOException;
 
@@ -20,11 +21,13 @@ public class MainSceneController {
 	private KingService kingService;
 	private LeHoiService leHoiService;
 	private TrieuDaiService trieuDaiService;
+	private SuKienService suKienService;
 	public MainSceneController() {
 		diTichService = new DiTichService();
 		kingService   = new KingService(); 
 		leHoiService  = new LeHoiService();
 		trieuDaiService  = new TrieuDaiService();
+		suKienService = new SuKienService();
 	}
 	// Event Listener on Button.onAction
 	@FXML
@@ -35,6 +38,7 @@ public class MainSceneController {
 		kingService.UploadData();
 		leHoiService.UploadData();
 		trieuDaiService.UploadData();
+		suKienService.UploadData();
 	}
 	// Event Listener on Button.onAction
 	@FXML
@@ -70,5 +74,13 @@ public class MainSceneController {
 		Stage stage = (Stage) btnKing.getScene().getWindow();
 		stage.setScene(scene);
 		stage.setTitle("Triều đại Việt Nam");
+	}
+	@FXML
+	public void goToSuKienView(ActionEvent event) throws IOException {
+		Parent suKienScene = FXMLLoader.load(getClass().getResource("SuKienScene.fxml"));
+		Scene scene = new Scene(suKienScene);
+		Stage stage = (Stage) btnKing.getScene().getWindow();
+		stage.setScene(scene);
+		stage.setTitle("Các sự kiện lịch sử Việt Nam");
 	}
 }

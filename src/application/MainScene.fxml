@@ -12,6 +12,7 @@
             <Button layoutX="13.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToDiTichView" prefHeight="43.0" prefWidth="289.0" text="Các di tích lịch sử" />
             <Button layoutX="13.0" layoutY="244.0" mnemonicParsing="false" onAction="#goToLeHoiView" prefHeight="43.0" prefWidth="289.0" text="Các lễ hội nổi tiếng" />
             <Button layoutX="13.0" layoutY="310.0" mnemonicParsing="false" onAction="#goToTrieuDaiView" prefHeight="43.0" prefWidth="289.0" text="Các triều đại" />
+            <Button layoutX="13.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToSuKienView" prefHeight="43.0" prefWidth="289.0" text="Các sự kiện lịch sử" />
          </children>
       </AnchorPane>
    </children>

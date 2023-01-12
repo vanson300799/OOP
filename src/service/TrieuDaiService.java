@@ -24,21 +24,6 @@ public class TrieuDaiService {
 		List<Element> listElement = doc.select("ul.sidebar-toc-list");
 		List<TrieuDai> trieudais = new ArrayList<TrieuDai>();
 		
-//		int j = 1;
-//		for (int i = 2; i <= 35; i++) {
-//				Element element = listElement.get(i);
-//				Element ele = element.select("span").first();
-//				if(ele != null) ele.remove();
-//				String text = element.text();
-//				if((text.indexOf("(") > -1)) {
-//					String parts[] = text.split("\\(", 2);
-//					String thoiGian = parts[1].replace(")", "");
-//					thoiGian = thoiGian.replace("(", "");
-//					TrieuDai trieudai = new TrieuDai(j, thoiGian, parts[0]);
-//					trieudais.add(trieudai);
-//					j++;
-//				}
-//		}
 		int j = 1;
 		String thoiGian;
 		String ten;
