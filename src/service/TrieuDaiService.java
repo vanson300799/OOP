@@ -21,7 +21,7 @@ public class TrieuDaiService {
 	public void UploadData() throws IOException{
 		String link = "https://vi.wikipedia.org/wiki/Vua_Vi%E1%BB%87t_Nam";
 		Document doc = Jsoup.connect(link).timeout(15000).get();
-		List<Element> listElement = doc.select("ul.sidebar-toc-list");
+		List<Element> listElement = doc.select("ul.vector-toc-list");
 		List<TrieuDai> trieudais = new ArrayList<TrieuDai>();
 		
 		int j = 1;
@@ -48,7 +48,7 @@ public class TrieuDaiService {
 					j++;
 				}
 			}
-		}
+		}		
 		
 		String data = new Gson().toJson(trieudais);
 		try(FileWriter file = new FileWriter("trieudai.json")) {
