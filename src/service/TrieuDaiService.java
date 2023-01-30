@@ -16,8 +16,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import domain.TrieuDai;
+import service.Interface.IDataService;
 
-public class TrieuDaiService {
+public class TrieuDaiService implements IDataService<TrieuDai>{
 	public void UploadData() throws IOException{
 		String link = "https://vi.wikipedia.org/wiki/Vua_Vi%E1%BB%87t_Nam";
 		Document doc = Jsoup.connect(link).timeout(15000).get();

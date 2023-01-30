@@ -15,9 +15,11 @@ import org.jsoup.nodes.Element;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import domain.LeHoi;
 import domain.SuKien;
+import service.Interface.IDataService;
 
-public class SuKienService {
+public class SuKienService implements IDataService<SuKien>{
 	public void UploadData() throws IOException{
 		String link = "https://quynhonland.vn/tom-tat-cac-moc-su-kien-lich-su-viet-nam/";
 		Document doc = Jsoup.connect(link).timeout(15000).get();

@@ -12,6 +12,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import domain.DiTich;
+import domain.King;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -21,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import service.DiTichService;
+import service.Interface.IDataService;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,7 +35,7 @@ public class DiTichSceneController implements Initializable{
 	private Parent root;
 	private Scene sceneRoot;
 	private Stage stage;
-	private DiTichService diTichService; 
+	private IDataService<DiTich> dataService; 
 	@FXML
 	private TextField searchField;
 	@FXML
@@ -55,13 +57,13 @@ public class DiTichSceneController implements Initializable{
 	public DiTichSceneController() throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		sceneRoot = new Scene(root);
-		diTichService = new DiTichService();
+		dataService = new DiTichService();
 	}
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		List<DiTich> diTichs;
 		try {
-			diTichs = diTichService.getData();
+			diTichs = dataService.getData();
 			diTichObservableList.addAll(diTichs);
 		} 
 		catch (FileNotFoundException e) {

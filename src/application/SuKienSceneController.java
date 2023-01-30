@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.SuKienService;
+import service.Interface.IDataService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import domain.LeHoi;
 import domain.SuKien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +32,7 @@ public class SuKienSceneController implements Initializable{
 	private Parent root;
 	private Scene sceneRoot;
 	private Stage stage;
-	private SuKienService suKienService;
+	private IDataService<SuKien> dataService; 
 	@FXML
 	private TextField searchField;
 	@FXML
@@ -47,13 +49,13 @@ public class SuKienSceneController implements Initializable{
 	public SuKienSceneController() throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		sceneRoot = new Scene(root);
-		suKienService = new SuKienService();
+		dataService = new SuKienService();
 	}
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		List<SuKien> suKiens;
 		try {
-			suKiens = suKienService.getData();
+			suKiens = dataService.getData();
 			suKienObservableList.addAll(suKiens);
 		} 
 		catch (FileNotFoundException e) {

@@ -10,18 +10,24 @@ import service.DiTichService;
 import service.KingService;
 import service.LeHoiService;
 import service.TrieuDaiService;
+import service.Interface.IDataService;
 import service.SuKienService;
 
 import java.io.IOException;
 
+import domain.DiTich;
+import domain.King;
+import domain.LeHoi;
+import domain.SuKien;
+import domain.TrieuDai;
 import javafx.event.ActionEvent;
 
 public class MainSceneController {
-	private DiTichService diTichService;
-	private KingService kingService;
-	private LeHoiService leHoiService;
-	private TrieuDaiService trieuDaiService;
-	private SuKienService suKienService;
+	private IDataService<DiTich> diTichService;
+	private IDataService<King> kingService;
+	private IDataService<LeHoi> leHoiService;
+	private IDataService<TrieuDai> trieuDaiService;
+	private IDataService<SuKien> suKienService;
 	public MainSceneController() {
 		diTichService = new DiTichService();
 		kingService   = new KingService(); 

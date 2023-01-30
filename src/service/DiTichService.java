@@ -17,8 +17,9 @@ import com.google.gson.reflect.TypeToken;
 
 import domain.DiTich;
 import domain.King;
+import service.Interface.IDataService;
 
-public class DiTichService {
+public class DiTichService implements IDataService<DiTich>{
 	public void UploadData() throws IOException{
 		String link = "https://vi.wikipedia.org/wiki/Di_t%C3%ADch_qu%E1%BB%91c_gia_%C4%91%E1%BA%B7c_bi%E1%BB%87t_(Vi%E1%BB%87t_Nam)";
 		Document doc = Jsoup.connect(link).timeout(15000).get();

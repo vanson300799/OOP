@@ -14,9 +14,11 @@ import org.jsoup.nodes.Element;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import domain.DiTich;
 import domain.King;
+import service.Interface.IDataService;
 
-public class KingService {
+public class KingService implements IDataService<King>{
 	public void UploadData() throws IOException{
 		String link = "https://vi.wikipedia.org/wiki/Vua_Vi%E1%BB%87t_Nam";
 		Document doc = Jsoup.connect(link).timeout(15000).get();
@@ -58,7 +60,7 @@ public class KingService {
 		}
 	}
 	
-	public List<King> getDataKings() throws FileNotFoundException{
+	public List<King> getData() throws FileNotFoundException{
 		Gson gson = new Gson();
 		try(FileReader data = new FileReader("king.json");) {
 			Type type = new TypeToken<ArrayList<King>>(){}.getType();

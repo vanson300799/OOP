@@ -23,12 +23,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.KingService;
+import service.Interface.IDataService;
 
 public class KingSceneController implements Initializable{
 	private Parent root;
 	private Scene sceneRoot;
 	private Stage stage;
-	private KingService getDataService; 
+	private IDataService<King> dataService; 
 	@FXML
 	private TextField searchField;
 	@FXML
@@ -55,13 +56,13 @@ public class KingSceneController implements Initializable{
 	public KingSceneController() throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		sceneRoot = new Scene(root);
-		getDataService = new KingService();
+		dataService = new KingService();
 	}
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		List<King> kings;
 		try {
-			kings = getDataService.getDataKings();
+			kings = dataService.getData();
 			kingObservableList.addAll(kings);
 		} 
 		catch (FileNotFoundException e) {

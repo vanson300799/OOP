@@ -18,8 +18,9 @@ import com.google.gson.reflect.TypeToken;
 import domain.DiTich;
 import domain.King;
 import domain.LeHoi;
+import service.Interface.IDataService;
 
-public class LeHoiService {
+public class LeHoiService implements IDataService<LeHoi>{
 	public void UploadData() throws IOException{
 		String link = "https://vi.wikipedia.org/wiki/L%E1%BB%85_h%E1%BB%99i_Vi%E1%BB%87t_Nam";
 		Document doc = Jsoup.connect(link).timeout(15000).get();

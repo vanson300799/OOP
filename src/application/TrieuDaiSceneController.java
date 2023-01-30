@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.TrieuDaiService;
+import service.Interface.IDataService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import domain.SuKien;
 import domain.TrieuDai;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +32,7 @@ public class TrieuDaiSceneController implements Initializable{
 	private Parent root;
 	private Scene sceneRoot;
 	private Stage stage;
-	private TrieuDaiService trieuDaiService; 
+	private IDataService<TrieuDai> dataService; 
 	@FXML
 	private TextField searchField;
 	@FXML
@@ -47,13 +49,13 @@ public class TrieuDaiSceneController implements Initializable{
 	public TrieuDaiSceneController() throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		sceneRoot = new Scene(root);
-		trieuDaiService = new TrieuDaiService();
+		dataService = new TrieuDaiService();
 	}
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		List<TrieuDai> trieuDais;
 		try {
-			trieuDais = trieuDaiService.getData();
+			trieuDais = dataService.getData();
 			trieuDaiObservableList.addAll(trieuDais);
 		} 
 		catch (FileNotFoundException e) {

@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.LeHoiService;
+import service.Interface.IDataService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import domain.DiTich;
 import domain.LeHoi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +32,7 @@ public class LeHoiSceneController implements Initializable{
 	private Parent root;
 	private Scene sceneRoot;
 	private Stage stage;
-	private LeHoiService leHoiService; 
+	private IDataService<LeHoi> dataService; 
 	@FXML
 	private TextField searchField;
 	@FXML
@@ -52,13 +54,13 @@ public class LeHoiSceneController implements Initializable{
 	public LeHoiSceneController() throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		sceneRoot = new Scene(root);
-		leHoiService = new LeHoiService();
+		dataService = new LeHoiService();
 	}
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		List<LeHoi> leHois;
 		try {
-			leHois = leHoiService.getData();
+			leHois = dataService.getData();
 			leHoiObservableList.addAll(leHois);
 		} 
 		catch (FileNotFoundException e) {
