@@ -7,12 +7,12 @@
 
 <AnchorPane prefHeight="346.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SuKienDetailSceneController">
    <children>
-      <AnchorPane fx:id="suKien" prefHeight="363.0" prefWidth="551.0">
+      <AnchorPane prefHeight="363.0" prefWidth="551.0">
          <children>
             <Text layoutX="21.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sự Kiện" />
             <TextField fx:id="thoiGian" layoutX="79.0" layoutY="23.0" prefHeight="25.0" prefWidth="452.0" />
             <Text layoutX="21.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thời Gian" />
-            <TextArea layoutX="21.0" layoutY="93.0" prefHeight="251.0" prefWidth="513.0" />
+            <TextArea fx:id="suKien" layoutX="21.0" layoutY="93.0" prefHeight="251.0" prefWidth="513.0" />
          </children>
       </AnchorPane>
    </children>

@@ -19,13 +19,14 @@ public class SuKienDetailSceneController{
     private TextField thoiGian;
     
     @FXML
-    private TextArea suKien;
+    private javafx.scene.control.TextArea suKien;
     
 	private IDataService<SuKien> dataService = new SuKienService();
 
 	public void setDefault() {
-//		suKien.setFocusTraversalPolicy(new ContainerOrderFocusTraversalPolicy());
+		suKien.setFocusTraversable(false);
 		thoiGian.setFocusTraversable(false);
+		suKien.setWrapText(true);
 		
 		thoiGian.setEditable(false);
 		suKien.setEditable(false);
@@ -33,8 +34,8 @@ public class SuKienDetailSceneController{
 	public void setData(int id) throws FileNotFoundException {
 		setDefault();
 		SuKien data = dataService.getByID(id);
-		suKien.setText(data.getSuKien());
 		thoiGian.setText(data.getThoiGian());
+		suKien.setText(data.getSuKien());
 
 	}
 
