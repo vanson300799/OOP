@@ -72,4 +72,18 @@ public class KingService implements IDataService<King>{
 			return null;
 		}
 	}
+	
+	public King getByID(int id) throws FileNotFoundException{
+		Gson gson = new Gson();
+		try(FileReader data = new FileReader("king.json");) {
+			Type type = new TypeToken<ArrayList<King>>(){}.getType();
+			List<King> kings = gson.fromJson(data, type);
+			King result = kings.stream().filter(e->e.getId() == id).findFirst().get();
+            return result;
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

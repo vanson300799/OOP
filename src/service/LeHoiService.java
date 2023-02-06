@@ -69,4 +69,19 @@ public class LeHoiService implements IDataService<LeHoi>{
 			return null;
 		}
 	}
+	
+	
+	public LeHoi getByID(int id) throws FileNotFoundException{
+		Gson gson = new Gson();
+		try(FileReader data = new FileReader("lehoi.json");) {
+			Type type = new TypeToken<ArrayList<LeHoi>>(){}.getType();
+			List<LeHoi> leHois = gson.fromJson(data, type);
+			LeHoi result = leHois.stream().filter(e->e.getId() == id).findFirst().get();
+            return result;
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

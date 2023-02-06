@@ -78,4 +78,17 @@ public class SuKienService implements IDataService<SuKien>{
 			return null;
 		}
 	}
+	public SuKien getByID(int id) throws FileNotFoundException{
+		Gson gson = new Gson();
+		try(FileReader data = new FileReader("sukien.json");) {
+			Type type = new TypeToken<ArrayList<SuKien>>(){}.getType();
+			List<SuKien> sukiens = gson.fromJson(data, type);
+			SuKien result = sukiens.stream().filter(x->x.getId() == id).findFirst().get();
+            return result;
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="376.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.KingDetailSceneController">
+   <children>
+      <AnchorPane prefHeight="378.0" prefWidth="571.0">
+         <children>
+            <TextField fx:id="nameField" layoutX="94.0" layoutY="31.0" prefHeight="25.0" prefWidth="452.0" />
+            <Text layoutX="28.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" />
+            <TextField fx:id="mieuHieu" layoutX="94.0" layoutY="76.0" prefHeight="25.0" prefWidth="452.0" />
+            <TextField fx:id="thuyHieu" layoutX="94.0" layoutY="128.0" prefHeight="25.0" prefWidth="452.0" />
+            <TextField fx:id="nienHieu" layoutX="94.0" layoutY="178.0" prefHeight="25.0" prefWidth="452.0" />
+            <TextField fx:id="tenHuy" layoutX="94.0" layoutY="227.0" prefHeight="25.0" prefWidth="452.0" />
+            <TextField fx:id="theThu" layoutX="94.0" layoutY="274.0" prefHeight="25.0" prefWidth="452.0" />
+            <Text layoutX="27.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miếu hiệu" />
+            <Text layoutX="27.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thụy hiệu" />
+            <Text layoutX="27.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Niên hiệu" />
+            <Text layoutX="27.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên húy" />
+            <Text layoutX="27.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thế thứ" />
+            <TextField fx:id="triVi" layoutX="94.0" layoutY="318.0" prefHeight="25.0" prefWidth="452.0" />
+            <Text layoutX="27.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Năm trị vì" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

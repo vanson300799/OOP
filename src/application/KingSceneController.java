@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.KingService;
 import service.Interface.IDataService;
@@ -123,4 +124,34 @@ public class KingSceneController implements Initializable{
 		stage.setScene(sceneRoot);
 		stage.setTitle("Trang chủ");
 	}
+	
+
+    @FXML
+    void getDetail(MouseEvent event) throws IOException {
+    	
+    	Integer index = kingTable.getSelectionModel().getSelectedIndex();
+    	if(index <= -1) {
+    		return;
+    	}
+    	else {
+    		Integer id = idColumn.getCellData(index);
+    		String name = tenColumn.getCellData(index);
+    		openScene(id,name);
+    	}
+
+    }
+    
+    void openScene(int id, String name) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("KingDetailScene.fxml"));
+	    root = (Parent)fxmlLoader.load();
+
+	    KingDetailSceneController kingDetailSceneController = fxmlLoader.getController();
+	    kingDetailSceneController.setData(id);
+	    
+	    Stage stage = new Stage();
+	    stage.setTitle(name);
+	    stage.setScene(new Scene(root));  
+	    stage.show();
+    }
 }
+

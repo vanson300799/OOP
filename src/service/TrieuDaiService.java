@@ -73,4 +73,17 @@ public class TrieuDaiService implements IDataService<TrieuDai>{
 			return null;
 		}
 	}
+	public TrieuDai getByID(int id) throws FileNotFoundException{
+		Gson gson = new Gson();
+		try(FileReader data = new FileReader("trieudai.json");) {
+			Type type = new TypeToken<ArrayList<TrieuDai>>(){}.getType();
+			List<TrieuDai> trieudais = gson.fromJson(data, type);
+			TrieuDai result = trieudais.stream().filter(e->e.getId() == id).findFirst().get();
+            return result;
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }

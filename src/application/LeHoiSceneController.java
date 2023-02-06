@@ -110,9 +110,16 @@ public class LeHoiSceneController implements Initializable{
 	}
 	// Event Listener on Button.onAction
 	@FXML
-	public void backToHome(ActionEvent event) {
-		stage = (Stage) searchField.getScene().getWindow();
-		stage.setScene(sceneRoot);
-		stage.setTitle("Trang chủ");
+	public void backToHome(ActionEvent event) throws IOException {
+	    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("KingDetailScene.fxml"));
+	    root = (Parent)fxmlLoader.load();
+
+	    KingDetailSceneController kingDetailSceneController = fxmlLoader.getController();
+	    kingDetailSceneController.setData(10);
+	    
+	    Stage stage = new Stage();
+	    stage.setTitle("ABC");
+	    stage.setScene(new Scene(root));  
+	    stage.show();
 	}
 }

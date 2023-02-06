@@ -71,4 +71,16 @@ public class DiTichService implements IDataService<DiTich>{
 			return null;
 		}
 	}
+	public DiTich getByID(int id) throws FileNotFoundException{
+		Gson gson = new Gson();
+		try(FileReader data = new FileReader("ditich.json");) {
+			Type type = new TypeToken<ArrayList<DiTich>>(){}.getType();
+			DiTich diTichs = gson.fromJson(data, type);
+            return diTichs;
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }
