@@ -75,8 +75,9 @@ public class DiTichService implements IDataService<DiTich>{
 		Gson gson = new Gson();
 		try(FileReader data = new FileReader("ditich.json");) {
 			Type type = new TypeToken<ArrayList<DiTich>>(){}.getType();
-			DiTich diTichs = gson.fromJson(data, type);
-            return diTichs;
+			List<DiTich> diTichs = gson.fromJson(data, type);
+			DiTich result = diTichs.stream().filter(x->x.getId() == id).findFirst().get();
+            return result;
 		}
 		catch(IOException ex) {
 			ex.printStackTrace();

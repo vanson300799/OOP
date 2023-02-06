@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.LeHoiService;
 import service.Interface.IDataService;
@@ -108,18 +109,41 @@ public class LeHoiSceneController implements Initializable{
 		sortedData.comparatorProperty().bind(leHoiTable.comparatorProperty());
 		leHoiTable.setItems(sortedData);
 	}
+	
 	// Event Listener on Button.onAction
 	@FXML
-	public void backToHome(ActionEvent event) throws IOException {
-	    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("KingDetailScene.fxml"));
+	public void backToHome(ActionEvent event) {
+		stage = (Stage) searchField.getScene().getWindow();
+		stage.setScene(sceneRoot);
+		stage.setTitle("Trang chủ");
+	}
+	
+	@FXML
+    void getDetail(MouseEvent event) throws IOException {
+    	
+    	Integer index = leHoiTable.getSelectionModel().getSelectedIndex();
+    	if(index <= -1) {
+    		return;
+    	}
+    	else {
+    		Integer id = idColumn.getCellData(index);
+    		String name = tenColumn.getCellData(index);
+    		openScene(id,name);
+    	}
+
+    }
+    
+    void openScene(int id, String name) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LeHoiDetailScene.fxml"));
 	    root = (Parent)fxmlLoader.load();
 
-	    KingDetailSceneController kingDetailSceneController = fxmlLoader.getController();
-	    kingDetailSceneController.setData(10);
+	    LeHoiDetailSceneController leHoiDetailSceneController = fxmlLoader.getController();
+	    leHoiDetailSceneController.setData(id);
 	    
 	    Stage stage = new Stage();
-	    stage.setTitle("ABC");
+	    stage.setTitle(name);
 	    stage.setScene(new Scene(root));  
 	    stage.show();
-	}
+    }
+	
 }

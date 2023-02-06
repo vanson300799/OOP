@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.TrieuDaiService;
 import service.Interface.IDataService;
@@ -98,4 +99,32 @@ public class TrieuDaiSceneController implements Initializable{
 		stage.setScene(sceneRoot);
 		stage.setTitle("Trang chủ");
 	}
+	
+	@FXML
+    void getDetail(MouseEvent event) throws IOException {
+    	
+    	Integer index = trieuDaiTable.getSelectionModel().getSelectedIndex();
+    	if(index <= -1) {
+    		return;
+    	}
+    	else {
+    		Integer id = idColumn.getCellData(index);
+    		String name = tenColumn.getCellData(index);
+    		openScene(id,name);
+    	}
+
+    }
+    
+    void openScene(int id, String name) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TrieuDaiDetailScene.fxml"));
+	    root = (Parent)fxmlLoader.load();
+
+	    TrieuDaiDetailSceneController trieuDaiDetailSceneController = fxmlLoader.getController();
+	    trieuDaiDetailSceneController.setData(id);
+	    
+	    Stage stage = new Stage();
+	    stage.setTitle(name);
+	    stage.setScene(new Scene(root));  
+	    stage.show();
+    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="69.0" prefWidth="533.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TrieuDaiDetailSceneController">
+   <children>
+      <AnchorPane prefHeight="135.0" prefWidth="571.0">
+         <children>
+            <TextField fx:id="nameField" layoutX="94.0" layoutY="31.0" prefHeight="25.0" prefWidth="452.0" />
+            <Text layoutX="28.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" />
+            <TextField fx:id="thoiGian" layoutX="94.0" layoutY="76.0" prefHeight="25.0" prefWidth="452.0" />
+            <Text layoutX="27.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thời Gian" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

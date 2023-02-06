@@ -10,7 +10,7 @@
    <children>
       <AnchorPane prefHeight="639.0" prefWidth="1302.0">
          <children>
-            <TableView fx:id="diTichTable" layoutX="14.0" layoutY="88.0" prefHeight="444.0" prefWidth="1266.0">
+            <TableView fx:id="diTichTable" layoutX="14.0" layoutY="88.0" onMouseClicked="#getDetail" prefHeight="444.0" prefWidth="1266.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
                 <TableColumn fx:id="tenColumn" prefWidth="290.0" text="Di tích" />

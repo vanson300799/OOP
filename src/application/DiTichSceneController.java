@@ -27,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -114,5 +115,34 @@ public class DiTichSceneController implements Initializable{
 		stage = (Stage) searchField.getScene().getWindow();
 		stage.setScene(sceneRoot);
 		stage.setTitle("Trang chủ");
+	}
+
+	
+	@FXML
+	void getDetail(MouseEvent event) throws IOException {
+		
+		Integer index = diTichTable.getSelectionModel().getSelectedIndex();
+		if(index <= -1) {
+			return;
+		}
+		else {
+			Integer id = idColumn.getCellData(index);
+			String name = tenColumn.getCellData(index);
+			openScene(id,name);
+		}
+	
+	}
+	
+	void openScene(int id, String name) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DiTichDetailScene.fxml"));
+	    root = (Parent)fxmlLoader.load();
+	
+	    DiTichDetailSceneController diTichDetailSceneController = fxmlLoader.getController();
+	    diTichDetailSceneController.setData(id);
+	    
+	    Stage stage = new Stage();
+	    stage.setTitle(name);
+	    stage.setScene(new Scene(root));  
+	    stage.show();
 	}
 }

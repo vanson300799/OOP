@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.SuKienService;
 import service.Interface.IDataService;
@@ -98,4 +99,33 @@ public class SuKienSceneController implements Initializable{
 		stage.setScene(sceneRoot);
 		stage.setTitle("Trang chủ");
 	}
+	
+	@FXML
+    void getDetail(MouseEvent event) throws IOException {
+    	
+    	Integer index = suKienTable.getSelectionModel().getSelectedIndex();
+    	if(index <= -1) {
+    		return;
+    	}
+    	else {
+    		Integer id = idColumn.getCellData(index);
+    		String name = suKienColumn.getCellData(index);
+    		openScene(id,name);
+    	}
+
+    }
+    
+    void openScene(int id, String name) throws IOException {
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SuKienDetailScene.fxml"));
+	    root = (Parent)fxmlLoader.load();
+
+	    SuKienDetailSceneController suKienDetailSceneController = fxmlLoader.getController();
+	    suKienDetailSceneController.setData(id);
+	    
+	    Stage stage = new Stage();
+	    stage.setTitle(name);
+	    stage.setScene(new Scene(root));  
+	    stage.show();
+    }
+	
 }
